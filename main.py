@@ -51,8 +51,8 @@ async def on_message(message):
             msg = MIMEMultipart()
             body_part = MIMEText(f"Here is the file for {name_of_channel} channel's links", 'plain')
             msg['Subject'] = f"{name_of_channel} CHANNEL'S LINKS IN CSV FILE"
-            msg['From'] = "oluwapythonpy@gmail.com"
-            msg['To'] = "oluwapythonpy@gmail.com"
+            msg['From'] = os.environ.get('EMAIL')
+            msg['To'] = os.environ.get('EMAIL')
             # Add body to email
             msg.attach(body_part)
                         # open and read the CSV file in binary
@@ -71,5 +71,5 @@ async def on_message(message):
 
 
 if __name__ == "__main__":
-    client.run("OTg4MjI0OTU1NTU0NjA3MTI2.Grpz5-.RLJtr6X_Jwwjms3eTLLi4PS7A6ksVqwCiHFooc")
+    client.run("SECRET_KEY")
 
