@@ -5,14 +5,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 import warnings
+import os
 
 
 
 client = discord.Client()
 guild = discord.Guild
 
-my_mail = "oluwapythonpy@gmail.com"
-password = "xcrggkccpkchojim"
+my_mail = os.environ.get('EMAIL')
+password = os.environ.get('PASSWORD')
 
 @client.event
 async def on_message(message):
